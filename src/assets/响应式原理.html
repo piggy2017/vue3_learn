@@ -1,0 +1,50 @@
+<!--
+ * @Author: 孙林 1164700321@qq.com
+ * @Date: 2024-05-27 16:57:17
+ * @LastEditors: 孙林
+ * @LastEditTime: 2024-05-27 17:11:37
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+
+<body>
+</body>
+<script>
+    // vue3的响应式 respondTheory
+    let person = {
+        name: "张三",
+        age: 18
+    }
+
+    // 模拟vue3实现响应式
+    const p = new Proxy(person, {
+        get(target, key) {
+            console.log(`触发读取person对象的${key}属性`)
+            // return target[key]
+            return Reflect.get(target, key)
+        },
+        set(target, key, value) {   // 修改或者添加属性时触发 set
+            console.log(`触发设置person对象的${key}属性`)
+            // target[key] = value;
+            return Reflect.set(target, key, value)
+        },
+        deleteProperty(target, key) {
+            console.log(`触发删除person对象的${key}属性`)
+            // return delete target[key]
+            return Reflect.deleteProperty(target, key)
+        }
+    })
+</script>
+
+</html>
