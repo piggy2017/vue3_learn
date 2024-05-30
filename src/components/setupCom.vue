@@ -12,7 +12,7 @@
         <h3>3、steup函数的两种返回值:</h3>
         <h4>一:若返回一个对象,则对象中的属性,方法,在模板中可以直接使用.(重点关注)</h4>
         <h4>二:若返回一个渲染函数,则可以自定义渲染内容.(了解)</h4>
-        <h3>注意点:1、尽量不要和vue2.x配置混用vue2中配置的(data、methods\computed...)可以访问到steup中配置的属性、方法
+        <h3>注意点:1、尽量不要和vue2.x配置混用;vue2中配置的(data、methods\computed...)可以访问到steup中配置的属性、方法
             但在steup中不能访问到vue2.x中配置的属性、方法,如果有重名,steup优先.
             2.steup不能是一个async函数,因为返回值不再是return的对象,而是promise对象.模板看不到return的对象. 
         </h3>
